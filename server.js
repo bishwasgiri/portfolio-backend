@@ -9,16 +9,6 @@ dotenv.config();
 
 const app = express();
 
-// const PORT = 4000;
-
-// const CLIENT_ID =
-//   "842709003134-ddjjek40su5fuphrss0lbke3eavgumh7.apps.googleusercontent.com";
-// const CLIENT_SECRET = "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";
-// const REFRESH_TOKEN =
-//   "1//0401vKKp_G-rwCgYIARAAGAQSNwF-L9Ir2DwqHgaXfW6Bu-sC3qpAsRNtFO_VULsXBWkWKc-S0B0aAGDz4F6ePAbKvX6otavsK6g";
-// const REDIRECT_URI = "https://developers.google.com/oauthplayground";
-// const MY_EMAIL = "giribishwas4@gmail.com";
-
 const oauth2Client = new google.auth.OAuth2(
   process.env.CLIENT_ID,
   process.env.CLIENT_SECRET,
@@ -45,7 +35,7 @@ const transporter = nodemailer.createTransport({
     clientId: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
     refreshToken: process.env.REFRESH_TOKEN,
-    accessToken: process.env.accessToken,
+    accessToken: accessToken,
   },
 });
 
