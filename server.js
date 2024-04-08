@@ -42,6 +42,7 @@ const transporter = nodemailer.createTransport({
 // end point to send mail
 app.post("/send-email", (req, res) => {
   const { email, subject, message } = req.body;
+  // console.log(req.body);
 
   if (!email) {
     res.status(401).send({ error: "please enter your email" });
@@ -63,7 +64,8 @@ app.post("/send-email", (req, res) => {
     from: email,
     to: process.env.MY_EMAIL,
     subject: subject,
-    text: `From:${email}\n\n${message}`,
+    replyTo: email,
+    text: message,
   };
 
   // send email
